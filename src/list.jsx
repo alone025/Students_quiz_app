@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 export const List = () => {
@@ -15,8 +14,12 @@ export const List = () => {
       </div>
       <div className="list-content">
         <ul>
-          <button>Hamshiralik</button>
-          <button>Ingiliz tili</button>
+          <Link to="/tests-quiz_for_students-1-hamshiralik">
+            <button>Hamshiralik</button>
+          </Link>
+          <Link to="/tests-quiz_for_students-1-english">
+            <button>Ingiliz tili</button>
+          </Link>
         </ul>
       </div>
     </div>

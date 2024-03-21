@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { data_questions } from "./data/hamshiralikQuestionData";
+import { english_data_questions } from "./data/englishQuestionData";
 import Converter from "./data/converter";
 import MyDialog from "./dialog";
 
-export const Test = () => {
+export const EnglishTest = () => {
   const [count, setCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -14,7 +14,7 @@ export const Test = () => {
 
   const nextQuestion = () => {
     setShowAnswer(true);
-    if (data_questions.length !== count + 1) {
+    if (english_data_questions.length !== count + 1) {
       setTimeout(() => {
         setCount(count + 1);
         setShowAnswer(false);
@@ -25,7 +25,8 @@ export const Test = () => {
         setShowAnswer(false);
         console.log(correctAnswers);
         console.log(incorrectAnswers);
-        const notcl = data_questions.length - correctAnswers - incorrectAnswers;
+        const notcl =
+          english_data_questions.length - correctAnswers - incorrectAnswers;
         window.location.href = `/tests-quiz_for_students-1/${
           "correct" +
           correctAnswers +
@@ -79,7 +80,7 @@ export const Test = () => {
     )}`;
   };
 
-  const inputData = data_questions[count].Id;
+  const inputData = english_data_questions[count].Id;
 
   return (
     <>
@@ -110,7 +111,7 @@ export const Test = () => {
             />
           </div>
           <div className="nextButton_prevButton">
-            {data_questions.length == count + 1 ? null : (
+            {english_data_questions.length == count + 1 ? null : (
               <button
                 disabled={showAnswer}
                 onClick={() => {
@@ -120,7 +121,7 @@ export const Test = () => {
                 Keyingi savol
               </button>
             )}
-            {data_questions.length == count + 1 ? (
+            {english_data_questions.length == count + 1 ? (
               <button
                 disabled={showAnswer}
                 onClick={() => {
@@ -131,7 +132,7 @@ export const Test = () => {
               </button>
             ) : null}
             <p>
-              {count + 1}/{data_questions.length}
+              {count + 1}/{english_data_questions.length}
             </p>
           </div>
         </div>

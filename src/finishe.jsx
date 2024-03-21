@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { data_questions } from "./data/questionData";
+import { data_questions } from "./data/hamshiralikQuestionData";
 
 export const Finishe = () => {
   const { numbeer } = useParams();

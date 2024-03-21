@@ -8,7 +8,7 @@ function AsosiySahifa() {
         <h3>Abiturentlar uchun maxsus tayyorlangan saytga</h3>
         <h2>Xush kelibsiz</h2>
         <div className="button-div">
-          <Link to="/tests-quiz_for_students-1">
+          <Link to="/list-type">
             <button>Testni boshlash uchun bosing</button>
           </Link>
         </div>
