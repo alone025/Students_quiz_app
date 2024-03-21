@@ -26,14 +26,11 @@ export const Test = () => {
         console.log(correctAnswers);
         console.log(incorrectAnswers);
         const notcl = data_questions.length - correctAnswers - incorrectAnswers;
-        window.location.href = `/tests-quiz_for_students-1-hamshiralik/${
-          "correct" +
-          correctAnswers +
-          "incorrect" +
-          incorrectAnswers +
-          "notclicked" +
-          notcl
-        }`;
+        window.location.href = `/tests-quiz_for_students-1-all_test-finish_result`;
+        localStorage.setItem(
+          "testResult",
+          `correct${correctAnswers}incorrect${incorrectAnswers}notclicked${notcl}`
+        );
       }, 1500);
     }
   };

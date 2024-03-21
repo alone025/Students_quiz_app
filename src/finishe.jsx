@@ -1,9 +1,8 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { data_questions } from "./data/hamshiralikQuestionData";
 
 export const Finishe = () => {
-  const { numbeer } = useParams();
-  console.log(numbeer);
+  const numbeer = localStorage.getItem("testResult");
 
   const startIndex = numbeer.indexOf("correct") + 7;
   const endIndex = numbeer.indexOf("incorrect");
@@ -39,7 +38,13 @@ export const Finishe = () => {
       </div>
       <div className="bttm-navigate">
         <Link to="/">
-          <button>Asosiy sahifaga qaytish</button>
+          <button
+            onClick={() => {
+              localStorage.removeItem("testResult");
+            }}
+          >
+            Asosiy sahifaga qaytish
+          </button>
         </Link>
       </div>
     </div>

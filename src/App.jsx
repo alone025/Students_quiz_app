@@ -18,15 +18,11 @@ function App() {
             element={<Test />}
           />
           <Route
-            path="/tests-quiz_for_students-1-hamshiralik/:numbeer"
-            element={<Finishe />}
-          />
-          <Route
             path="/tests-quiz_for_students-1-english"
             element={<EnglishTest />}
           />
           <Route
-            path="/tests-quiz_for_students-1-english/:numbeer"
+            path="/tests-quiz_for_students-1-all_test-finish_result"
             element={<Finishe />}
           />
         </Routes>
