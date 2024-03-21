@@ -21,10 +21,7 @@ function App() {
             path="/tests-quiz_for_students-1-english"
             element={<EnglishTest />}
           />
-          <Route
-            path="/tests-quiz_for_students-1-all_test-finish_result"
-            element={<Finishe />}
-          />
+          <Route path="/tests-result" element={<Finishe />} />
         </Routes>
       </Router>
     </>

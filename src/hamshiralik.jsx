@@ -26,7 +26,7 @@ export const Test = () => {
         console.log(correctAnswers);
         console.log(incorrectAnswers);
         const notcl = data_questions.length - correctAnswers - incorrectAnswers;
-        window.location.href = `/tests-quiz_for_students-1-all_test-finish_result`;
+        window.location.href = `/tests-result`;
         localStorage.setItem(
           "testResult",
           `correct${correctAnswers}incorrect${incorrectAnswers}notclicked${notcl}`
