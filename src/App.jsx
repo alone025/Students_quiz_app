@@ -1,10 +1,10 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AsosiySahifa from "./asosiyPage";
-import { Test } from "./test";
 import { Finishe } from "./finishe";
 import { List } from "./list";
 import { EnglishTest } from "./englishTest";
+import { Test } from "./hamshiralik";
 
 function App() {
   return (
