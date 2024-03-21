@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AsosiySahifa from "./asosiyPage";
-import { Finishe } from "./finishe";
 import { List } from "./list";
 import { EnglishTest } from "./englishTest";
 import { Test } from "./hamshiralik";
@@ -21,7 +20,6 @@ function App() {
             path="/tests-quiz_for_students-1-english"
             element={<EnglishTest />}
           />
-          <Route path="/tests-result" element={<Finishe />} />
         </Routes>
       </Router>
     </>

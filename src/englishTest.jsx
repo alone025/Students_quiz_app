@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { english_data_questions } from "./data/englishQuestionData";
 import Converter from "./data/converter";
 import MyDialog from "./dialog";
+import { Finishe } from "./finishe";
 
 export const EnglishTest = () => {
   const [count, setCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
   const [time, setTime] = useState(30);
+  const [finsh, setFinsh] = useState(false);
 
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [incorrectAnswers, setINCorrectAnswers] = useState(0);
@@ -27,7 +29,7 @@ export const EnglishTest = () => {
         console.log(incorrectAnswers);
         const notcl =
           english_data_questions.length - correctAnswers - incorrectAnswers;
-        window.location.href = `/tests-result`;
+        setFinsh(true);
         localStorage.setItem(
           "testResult",
           `correct${correctAnswers}incorrect${incorrectAnswers}notclicked${notcl}`
@@ -81,60 +83,66 @@ export const EnglishTest = () => {
 
   return (
     <>
-      <div className="test-content">
-        <div className="test-body">
-          <div className="test-top">
-            <div className="back-to-main-page">
-              <button
-                onClick={() => {
-                  setIsOpen(true);
-                }}
-              >
-                Go back
-              </button>
+      {!finsh ? (
+        <>
+          <div className="test-content">
+            <div className="test-body">
+              <div className="test-top">
+                <div className="back-to-main-page">
+                  <button
+                    onClick={() => {
+                      setIsOpen(true);
+                    }}
+                  >
+                    Go back
+                  </button>
+                </div>
+                <div className="timer-tab">{formatTime(time)}</div>
+              </div>
+              <div className="test-btm">
+                <Converter
+                  inputData={inputData}
+                  showAnswer={showAnswer}
+                  setShowAnswer={setShowAnswer}
+                  nextq={nextQuestion}
+                  correct={setCorrectAnswers}
+                  cr={correctAnswers}
+                  incorrect={setINCorrectAnswers}
+                  inc={incorrectAnswers}
+                />
+              </div>
+              <div className="nextButton_prevButton">
+                {english_data_questions.length == count + 1 ? null : (
+                  <button
+                    disabled={showAnswer}
+                    onClick={() => {
+                      nextQuestion();
+                    }}
+                  >
+                    Keyingi savol
+                  </button>
+                )}
+                {english_data_questions.length == count + 1 ? (
+                  <button
+                    disabled={showAnswer}
+                    onClick={() => {
+                      nextQuestion();
+                    }}
+                  >
+                    Testni tugatish
+                  </button>
+                ) : null}
+                <p>
+                  {count + 1}/{english_data_questions.length}
+                </p>
+              </div>
             </div>
-            <div className="timer-tab">{formatTime(time)}</div>
           </div>
-          <div className="test-btm">
-            <Converter
-              inputData={inputData}
-              showAnswer={showAnswer}
-              setShowAnswer={setShowAnswer}
-              nextq={nextQuestion}
-              correct={setCorrectAnswers}
-              cr={correctAnswers}
-              incorrect={setINCorrectAnswers}
-              inc={incorrectAnswers}
-            />
-          </div>
-          <div className="nextButton_prevButton">
-            {english_data_questions.length == count + 1 ? null : (
-              <button
-                disabled={showAnswer}
-                onClick={() => {
-                  nextQuestion();
-                }}
-              >
-                Keyingi savol
-              </button>
-            )}
-            {english_data_questions.length == count + 1 ? (
-              <button
-                disabled={showAnswer}
-                onClick={() => {
-                  nextQuestion();
-                }}
-              >
-                Testni tugatish
-              </button>
-            ) : null}
-            <p>
-              {count + 1}/{english_data_questions.length}
-            </p>
-          </div>
-        </div>
-      </div>
-      <MyDialog isOpen={isOpen} setIsOpen={setIsOpen} />
+          <MyDialog isOpen={isOpen} setIsOpen={setIsOpen} />
+        </>
+      ) : (
+        <Finishe length={english_data_questions.length} />
+      )}
     </>
   );
 };

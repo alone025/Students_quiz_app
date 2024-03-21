@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { data_questions } from "./data/hamshiralikQuestionData";
 
-export const Finishe = () => {
+export const Finishe = ({ length }) => {
   const numbeer = localStorage.getItem("testResult");
 
   const startIndex = numbeer.indexOf("correct") + 7;
@@ -23,7 +22,7 @@ export const Finishe = () => {
         <h3>Test yakunlandi</h3>
       </div>
       <div className="test-btm">
-        <p>Siz {data_questions.length} ta savolga javob berdingiz:</p>
+        <p>Siz {length} ta savolga javob berdingiz:</p>
         <ul>
           <li>
             ✅ Toʻgʻri – <strong>{number}</strong>{" "}

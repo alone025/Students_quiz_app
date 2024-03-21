@@ -9,7 +9,7 @@ export const List = () => {
         </Link>
       </div>
       <div className="list-top">
-        <h2>Testlar ro'yxati</h2>
+        <h2>Testlar jadvali</h2>
         <p>Boshlash uchun tanlang</p>
       </div>
       <div className="list-content">
