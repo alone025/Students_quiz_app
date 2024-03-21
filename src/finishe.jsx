@@ -36,7 +36,7 @@ export const Finishe = ({ length }) => {
         </ul>
       </div>
       <div className="bttm-navigate">
-        <Link to="/">
+        <Link to="/list-type">
           <button
             onClick={() => {
               localStorage.removeItem("testResult");
