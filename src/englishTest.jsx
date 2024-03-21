@@ -27,7 +27,7 @@ export const EnglishTest = () => {
         console.log(incorrectAnswers);
         const notcl =
           english_data_questions.length - correctAnswers - incorrectAnswers;
-        window.location.href = `/tests-quiz_for_students-1/${
+        window.location.href = `/tests-quiz_for_students-1-english/${
           "correct" +
           correctAnswers +
           "incorrect" +
